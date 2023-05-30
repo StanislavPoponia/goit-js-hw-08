@@ -16,12 +16,18 @@ function text() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(dataStorage));
 }
 
+
+
 function onFormSubmit(event) {
+  if (email.value === '' || message.value === '') {
+    return alert('Заповніть всі поля');
+  }
   event.preventDefault();
   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   event.target.reset();
   localStorage.removeItem(STORAGE_KEY);
-}
+  }
+
 
 saveFormData();
 function saveFormData() {
